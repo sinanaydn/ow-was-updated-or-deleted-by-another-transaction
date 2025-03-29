@@ -4,6 +4,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.Min;
+import kodlama.io.rentACar.entities.concretes.Brand;
+import kodlama.io.rentACar.entities.concretes.Model;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -26,7 +28,7 @@ public class CreateCarRequest {
     private int modelYear;
     
     private int state;
-    
+
     @NotNull
-    private int modelId;
+    private Model model;
 }

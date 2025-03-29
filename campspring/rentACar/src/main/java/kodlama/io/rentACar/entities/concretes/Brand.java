@@ -1,16 +1,11 @@
 package kodlama.io.rentACar.entities.concretes;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
-import jakarta.persistence.OneToMany;
+
 import java.util.List;
 
 @Table(name="brands")
@@ -27,7 +22,12 @@ public class Brand {
 	
 	@Column(name="name")
 	private String name;
-	
-	@OneToMany(mappedBy = "brand")
+
+	@OneToMany(mappedBy = "brand", cascade = CascadeType.ALL, orphanRemoval = true)
 	private List<Model> models;
+
+//	@ManyToOne
+//	@JoinColumn(nullable=false)
+//	private Car car;
+
 }
