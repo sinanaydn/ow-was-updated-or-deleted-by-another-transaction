@@ -25,6 +25,7 @@ public class ModelsController {
     public void add(@RequestBody @Valid CreateModelRequest createModelRequest) {
         modelService.add(createModelRequest);
     }
+
     @DeleteMapping(path = "/{id}")
     public void delete(@PathVariable int id) {
         modelService.delete(id);

@@ -4,6 +4,7 @@ package kodlama.io.rentACar.business.requests;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import kodlama.io.rentACar.entities.concretes.Brand;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,5 +19,5 @@ public class CreateModelRequest {
     private String name;
     
     @NotNull(message = "Marka ID'si boş olamaz")
-    private int brandId;
+    private Brand brand;
 } 

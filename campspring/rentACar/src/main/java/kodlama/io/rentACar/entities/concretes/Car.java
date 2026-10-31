@@ -1,11 +1,6 @@
 package kodlama.io.rentACar.entities.concretes;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,6 +27,16 @@ public class Car {
     
     @Column(name="state")
     private int state;  // 1-Available 2-Rented 3-Maintenance
-    
-    
+
+//    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+//    @JoinColumn(name = "brand_id", referencedColumnName = "id")
+//    private Brand brand;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "model_id", referencedColumnName = "id")
+    private Model model;
+
+    public Brand getBrand() {
+        return model != null ? model.getBrand() : null;
+    }
 } 
